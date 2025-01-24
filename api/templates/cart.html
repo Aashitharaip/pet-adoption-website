@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card shadow border-0">
+      <div class="card-header">
+        <h4>Pet Details</h4>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tr><th>Name</th><td>{{ pet[1] }}</td></tr>
+          <tr><th>Species</th><td>{{ pet[2] }}</td></tr>
+          <tr><th>Breed</th><td>{{ pet[3] }}</td></tr>
+          <tr><th>Age</th><td>{{ pet[4] }}</td></tr>
+          <tr><th>Gender</th><td>{{ pet[5] }}</td></tr>
+          <tr><th rowspan="2">Shelter</th><td>Name: {{ pet[6] }}</td></tr>
+          <tr><td>Location: {{ pet[7] }}</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h1>Adoptation Certificate</h1>
+      </div>
+      <div class="card-body">
+        <table class="table">
+			<tr><th>Name of the customer</th><td>{{ customer[1] }}</td></tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ customer[2] }}</td>
+			</tr>
+			<tr>
+				<th>Phone number</th>
+				<td>{{ customer[3] }}</td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td>{{ customer[4] }}</td>
+			</tr>
+		</table>
+      </div>
+      <!-- Add Update and Delete buttons -->
+    <div class="mt-4">
+      <a href="{{ url_for('update_user') }}" class="btn btn-primary">Update User Details</a>
+      <a href="{{ url_for('delete_account') }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
